@@ -6,7 +6,8 @@ RUN source activate $CONDA_ENV && \
     conda install -y unzip python-graphviz && \
     apt-get update && \
     apt-get install -y --fix-missing font-manager && \
-    pip install ipyvolume dask-kubernetes matplotlib && \
+    pip install ipyvolume dask-kubernetes matplotlib cupy-cuda92 && \
+    pip install git+https://github.com/rapidsai/dask-cuda@master && \
     rm -rf /var/lib/apt/lists/*
 
 COPY prepare.sh /usr/bin/prepare.sh
